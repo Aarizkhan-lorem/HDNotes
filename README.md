@@ -113,6 +113,11 @@ REACT_APP_API_URL=http://localhost:5000/api
 
 ### Screenshots of the App
 ![App Screenshot](frontend/public/1.png)
+![App Screenshot](frontend/public/2.png)
+![App Screenshot](frontend/public/3.png)
+![App Screenshot](frontend/public/4.png)
+![App Screenshot](frontend/public/5.png)
+![App Screenshot](frontend/public/6.png)
 
 ## 🚀 Running the Application
 
