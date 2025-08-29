@@ -1,5 +1,5 @@
 import { api } from "./api";
-import type { Note, CreateNoteData } from "../types/note.types";
+import type { CreateNoteData } from "../types/note.types";
 import { API_ENDPOINTS } from "../utils/constants";
 
 export const notesService = {

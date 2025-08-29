@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Plus, Trash2 } from "lucide-react";
+import { Trash2 } from "lucide-react";
 import { Button } from "../ui/Button";
 import { CreateNoteModal } from "./CreateNoteModal";
 import { notesService } from "../../services/notes.service";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../context/authContext";
 import type { Note } from "../../types/note.types";
 import { toast } from "sonner";
 

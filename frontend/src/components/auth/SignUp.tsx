@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Eye, EyeOff, Calendar } from "lucide-react";
 import { Button } from "../ui/Button";
 import { Input } from "../ui/Input";
 import { authService } from "../../services/auth.service";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
+import type { CustomJwtPayload } from "../../types/jwt.types";
 
 interface SignUpProps {
   onSwitch: () => void;
@@ -18,7 +18,7 @@ export const SignUp: React.FC<SignUpProps> = ({ onSwitch, onOTPRequired }) => {
     dateOfBirth: "",
     password: "",
   });
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, ] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -100,7 +100,7 @@ export const SignUp: React.FC<SignUpProps> = ({ onSwitch, onOTPRequired }) => {
         <GoogleLogin
           onSuccess={(credentialResponse) => {
             if (credentialResponse.credential) {
-              const decoded = jwtDecode(
+              const decoded:CustomJwtPayload = jwtDecode(
                 credentialResponse.credential
               );
               console.log("User Info:", decoded);

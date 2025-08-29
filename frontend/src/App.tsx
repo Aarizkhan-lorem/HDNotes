@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { AuthProvider, useAuth } from "./context/AuthContext";
+import { AuthProvider, useAuth } from "./context/authContext";
 import { AuthPage } from "./pages/AuthPage";
 import {NotFoundPage} from "./pages/NotFoundPage"
 import { Dashboard } from "./components/dashboard/Dashboard";

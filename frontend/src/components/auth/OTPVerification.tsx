@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
 import { Button } from "../ui/Button";
 import { Input } from "../ui/Input";
 import { authService } from "../../services/auth.service";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../context/authContext";
 
 interface OTPVerificationProps {
   email: string;
@@ -17,7 +16,7 @@ export const OTPVerification: React.FC<OTPVerificationProps> = ({
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [showOTP, setShowOTP] = useState(false);
+  const [showOTP, ] = useState(false);
 
   const { setAuth } = useAuth();
 
@@ -38,14 +37,6 @@ export const OTPVerification: React.FC<OTPVerificationProps> = ({
       setError(err.response?.data?.message || "OTP verification failed");
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleResendOTP = async () => {
-    try {
-      await authService.resendOTP(email);
-    } catch (err) {
-      console.error("Failed to resend OTP");
     }
   };
 

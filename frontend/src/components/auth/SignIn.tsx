@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "../ui/Button";
 import { Input } from "../../components/ui/Input";
 import { authService } from "../../services/auth.service";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../context/authContext";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 
