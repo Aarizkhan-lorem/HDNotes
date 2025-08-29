@@ -111,6 +111,9 @@ REACT_APP_API_URL=http://localhost:5000/api
 - **Local MongoDB**: Make sure MongoDB is running locally
 - **MongoDB Atlas**: Replace the connection string in your `.env` file
 
+### Screenshots of the App
+![App Screenshot](/frontend/1.png)
+
 ## 🚀 Running the Application
 
 ### Development Mode
