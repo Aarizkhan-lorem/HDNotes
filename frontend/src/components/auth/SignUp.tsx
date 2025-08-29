@@ -83,23 +83,14 @@ export const SignUp: React.FC<SignUpProps> = ({ onSwitch, onOTPRequired }) => {
           required
         />
 
-        <div className="relative">
-          <Input
-            label="Password"
-            name="password"
-            type={showPassword ? "text" : "password"}
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-          <button
-            type="button"
-            className="absolute right-3 top-4 text-gray-400"
-            onClick={() => setShowPassword(!showPassword)}
-          >
-            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-          </button>
-        </div>
+        <Input
+          label="Password"
+          name="password"
+          type={showPassword ? "text" : "password"}
+          value={formData.password}
+          onChange={handleChange}
+          required
+        />
 
         {error && <p className="text-red-500 text-sm">{error}</p>}
 

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
 import { Button } from "../ui/Button";
 import { Input } from "../../components/ui/Input";
 import { authService } from "../../services/auth.service";
@@ -21,7 +20,6 @@ interface GoogleUser {
 export const SignIn: React.FC<SignInProps> = ({ onSwitch, onOTPRequired }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [keepSignedIn, setKeepSignedIn] = useState(false);
@@ -29,9 +27,8 @@ export const SignIn: React.FC<SignInProps> = ({ onSwitch, onOTPRequired }) => {
   const { setAuth } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault(); // Move this to the very top
+    e.preventDefault();
 
-    // Add validation before API call
     if (!email || !password) {
       setError("Please fill in all fields");
       return;
@@ -49,7 +46,7 @@ export const SignIn: React.FC<SignInProps> = ({ onSwitch, onOTPRequired }) => {
         setError(response.message || "Login failed");
       }
     } catch (err: any) {
-      console.error("Login error:", err); // Add logging
+      console.error("Login error:", err);
 
       const errorMessage = err?.response?.data?.message || "Login failed";
 
@@ -64,7 +61,7 @@ export const SignIn: React.FC<SignInProps> = ({ onSwitch, onOTPRequired }) => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto  p-8 ">
+    <div className="w-full max-w-md mx-auto p-8">
       <h2 className="text-2xl font-bold mb-2">Sign in</h2>
       <p className="text-gray-600 mb-6">
         Please login to continue to your account.
@@ -80,22 +77,13 @@ export const SignIn: React.FC<SignInProps> = ({ onSwitch, onOTPRequired }) => {
           required
         />
 
-        <div className="relative">
-          <Input
-            label="Password"
-            type={showPassword ? "text" : "password"}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button
-            type="button"
-            className="absolute right-3 top-8 text-gray-400"
-            onClick={() => setShowPassword(!showPassword)}
-          >
-            {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-          </button>
-        </div>
+        <Input
+          label="Password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
 
         <div className="flex items-center justify-between">
           <label className="flex items-center">
@@ -114,6 +102,7 @@ export const SignIn: React.FC<SignInProps> = ({ onSwitch, onOTPRequired }) => {
         <Button type="submit" loading={loading} className="w-full">
           Sign in
         </Button>
+
         <GoogleLogin
           onSuccess={(credentialResponse) => {
             if (credentialResponse.credential) {

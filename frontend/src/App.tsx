@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import { AuthPage } from "./pages/AuthPage";
+import {NotFoundPage} from "./pages/NotFoundPage"
 import { Dashboard } from "./components/dashboard/Dashboard";
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({
@@ -42,6 +43,7 @@ function App() {
             }
           />
           <Route path="/" element={<Navigate to="/auth" replace />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
