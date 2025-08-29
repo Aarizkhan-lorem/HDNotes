@@ -112,7 +112,7 @@ REACT_APP_API_URL=http://localhost:5000/api
 - **MongoDB Atlas**: Replace the connection string in your `.env` file
 
 ### Screenshots of the App
-![App Screenshot](/frontend/1.png)
+![App Screenshot](/1.png)
 
 ## 🚀 Running the Application
 
