@@ -62,10 +62,10 @@ export const OTPVerification: React.FC<OTPVerificationProps> = ({
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <p className="text-sm text-gray-600">Your Name</p>
-        <p className="font-medium">Jonas Kahnwald</p>
+        <p className="font-medium">XXXXX</p>
 
         <p className="text-sm text-gray-600">Date of Birth</p>
-        <p className="font-medium">11 December 1997</p>
+        <p className="font-medium">XX XXX XXXX</p>
 
         <p className="text-sm text-gray-600">Email</p>
         <p className="font-medium">{email}</p>
@@ -78,13 +78,6 @@ export const OTPVerification: React.FC<OTPVerificationProps> = ({
             onChange={(e) => setOtp(e.target.value)}
             required
           />
-          <button
-            type="button"
-            className="absolute right-3 top-8 text-gray-400"
-            onClick={() => setShowOTP(!showOTP)}
-          >
-            {showOTP ? <EyeOff size={20} /> : <Eye size={20} />}
-          </button>
         </div>
 
         {error && <p className="text-red-500 text-sm">{error}</p>}
